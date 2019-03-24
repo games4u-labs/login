@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Login to Games4U</title>
- 
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -37,9 +37,12 @@
               document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
-                
-                
-               
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
               }, null, '  ');
             });
           } else {
@@ -52,15 +55,14 @@
           console.log(error);
         });
       };
-
-      window.addEventListener('load', function() {
+       window.addEventListener('load', function() {
         initApp()
       });
     </script>
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: 'https://games.ytbros.tk/',
+        signInSuccessUrl: 'https://games.ytbros.tk',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -80,8 +82,7 @@
           window.location.assign('google');
         }
       };
-
-      // Initialize the FirebaseUI Widget using Firebase.
+       // Initialize the FirebaseUI Widget using Firebase.
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
@@ -91,9 +92,6 @@
     <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
     <h1>Games4U Login - New!!!</h1>
-
-    <button id="sign-in"</button>
-     <p id="account-details"></p>
     <div id="firebaseui-auth-container"></div>
   </body>
 </html>
