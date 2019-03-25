@@ -47,14 +47,16 @@
 </head>
 <body>
 <p id="account-details"></p>
-<button id="sign-in" onclick="signoutfrom()"></button>
+<button id="sign-in" ></button>
       <script>
-            function signoutfrom()
-      firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
+            var initApp = function() {
+  document.getElementById('sign-in-with-redirect').addEventListener(
+      'click', signInWithRedirect);
+  document.getElementById('sign-in-with-popup').addEventListener(
+      'click', signInWithPopup);
+  document.getElementById('sign-out').addEventListener('click', function() {
+    firebase.auth().signOut();
+  });
       </script>
   </body>
 </html>
