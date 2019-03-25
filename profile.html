@@ -1,6 +1,7 @@
 <html>
 <head>
 <script src="//games.ytbros.tk/track-firebase-user.js"></script>
+      <script src="//games.ytbros.tk/config.js"
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script type="text/javascript">
       initApp = function() {
@@ -46,7 +47,15 @@
 </head>
 <body>
 <p id="account-details"></p>
-<p id="sign-in"></p>
+<button id="sign-in" onclick="signoutfrom()"></button>
+      <script>
+            function signoutfrom()
+      firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+      </script>
   </body>
 </html>
 
