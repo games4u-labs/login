@@ -37,12 +37,7 @@
               document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
+            
               }, null, '  ');
             });
           } else {
@@ -92,6 +87,7 @@
     <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
     <h1>Games4U Login - New!!!</h1>
+    <p id="account-details">
     <div id="firebaseui-auth-container"></div>
   </body>
 </html>
