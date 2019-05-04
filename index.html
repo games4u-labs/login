@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <title>Login to Games4U</title>
+    	<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 99%;
+			border: 0;
+		  }
+		</style>
 
  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script>
@@ -42,7 +57,7 @@
             });
           } else {
             // User is signed out.
-            
+            window.location.href = "https://login.se-gaming.tk"
             document.getElementById('sign-in-status').textContent = 'Signed out';
             document.getElementById('sign-in').textContent = 'Sign in';
             document.getElementById('account-details').textContent = 'null';
@@ -55,40 +70,14 @@
         initApp()
       });
     </script>
-    <script type="text/javascript">
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: 'https://sites.google.com/stu.palmbeachschools.org/games4u-alt',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          
-          
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-         
-        ],
-        // tosUrl and privacyPolicyUrl accept either url string or a callback
-        // function.
-        // Terms of service url/callback.
-        tosUrl: 'google',
-        // Privacy policy url/callback.
-        privacyPolicyUrl: function() {
-          window.location.assign('google');
-        }
-      };
-       // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+    
   </head>
   <body>
     <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
     <h1>Games4U Login - New!!!</h1>
     <p id="account-details"></p>
-    <div id="firebaseui-auth-container"></div>
+    <iframe src="https://se-gaming.tk"></iframe>
+  
   </body>
 </html>
